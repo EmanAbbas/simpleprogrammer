@@ -1,0 +1,31 @@
+
+{%extends 'base.html' %}
+{% block content  %}
+
+
+
+<!-- banner -->
+<div class="banner">
+	<div class="container">
+		<h2>Welcome to my site demo</h2>
+		<p>This is just a demo for the website</p>
+{#		<a href="#">READ ARTICLE</a>#}
+	</div>
+</div>
+<div class="row">
+  {% for article in articles%}
+    <div class="col-md-3" style="height: 250px;">
+        <a  href="{% url 'article' article.pk %}">
+            <div style=" width:100%; opacity:0.8;">
+                <img src="{{ article.picture.thumbnail.url }}" />
+
+            </div>
+        </a>
+        <div class="article-title">
+            <h5><a href="{% url 'article' article.pk %}">{{ article.title }}</a>
+            </h5> <span > {{ article.date }}           	        		        /
+By <a href="#"> {{ article.author }} </a> </span></div></div>
+
+    {% endfor %}
+    </div>
+{% endblock content %}
