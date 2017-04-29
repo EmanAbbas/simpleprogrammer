@@ -22,7 +22,7 @@ python get-pip.py
 
 
 ## Installation
-1. ```git clone https://github.com/EmanAbbas/simpleprogrammer.git```
+1. ```git clone https://github.com/ndebuhr/opencamd-dev.git```
 2. ```cd .. ```
 ### Linux ,Mac:
 - ```virtualenv -p python3 env```
