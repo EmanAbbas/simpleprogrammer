@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'stdimage',
     'storages',
     'ckeditor',
+     'django_cleanup',
     'website',
 ]
 
