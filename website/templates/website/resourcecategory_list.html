@@ -1,0 +1,35 @@
+﻿﻿ {%extends 'base.html' %}
+ <!-- PRESENTATION AREA -->
+{% block content %}
+
+<div class="row">
+
+<div class="container">
+		<div class="col-md-10 col-lg-offset-1">
+
+            {% for category in object_list %}
+                <h2>
+                {{ category.category_name }}
+                </h2>
+                {% for resource in category.resources.all %}
+
+                <p><strong><a href="h{{ resource.link }}">{{ resource.title }}</a></strong> – {{ resource.description }}</p>
+
+                {% empty %}
+                    <p> Coming Soon.....</p>
+                {% endfor %}
+
+            {% endfor %}
+
+
+        </div>
+
+</div>
+
+
+
+</div>
+
+
+
+{% endblock %}

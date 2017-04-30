@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from  website.models import Article,Video
+from  website.models import Article,Video,ResourceCategory
 from django.views.generic import ListView, DetailView
 # Create your views here.
 
@@ -30,6 +30,10 @@ class VideoeList(ListView):
 
 class VideoeDetail(DetailView):
     model=Video
+
+
+class CategoryList(ListView):
+    model=ResourceCategory
 
 
 
