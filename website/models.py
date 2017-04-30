@@ -1,6 +1,7 @@
 from django.db import models
 from stdimage.models import StdImageField
 from ckeditor.fields import RichTextField
+import re
 # Create your models here.
 
 
@@ -42,12 +43,19 @@ class Video(models.Model):
     """
     date = models.DateTimeField(auto_now_add=True)
     title=models.CharField(max_length=250, default='')
-    author=models.ForeignKey('Author',related_name='videos',blank=True,null=True)
+    author=models.ForeignKey('Author',related_name='videos',null=True)
     video_url= models.URLField()
     video_thumbnail=models.ImageField(upload_to='uploads/thumbnails',blank=True,null=True)
-    video_clip=models.FileField(blank=True,null=True)
     def __str__(self):
         return self.title
+
+
+    @property
+    def embed_url(self):
+        regex = r"(?:https:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)"
+
+        return re.sub(regex, r"https://www.youtube.com/embed/\1", self.video_url)
+
 
 
 

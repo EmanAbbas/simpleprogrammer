@@ -20,8 +20,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^$',views.home, name='home'),
+    url(r'^$',views.ArticleList.as_view(), name='home'),
+    url(r'^videos$',views.VideoeList.as_view(), name='videos'),
     url(r'^article/(?P<pk>[0-9]*)$', views.ArticleDetail.as_view(), name='article'),
+    url(r'^video/(?P<pk>[0-9]*)$', views.VideoeDetail.as_view(), name='video'),
     url(r'^admin/', admin.site.urls),
 ]
 

@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+﻿﻿ {%extends 'base.html' %}
+ <!-- PRESENTATION AREA -->
+{% block content %}
+
+
+
+<div class="technology-1">
+	<div class="container">
+		<div class="col-md-9 technology-left">
+			<div class="business">
+				<div class=" blog-grid2">
+					<img src="{{ video.video_thumbnail.url }}" class="img-responsive" alt=""/>
+					<div class="blog-text">
+						<h5>{{video.title}}</h5>
+						<iframe width="560" height="315" data-lazy-src="{{ video.embed_url }}" frameborder="0" allowfullscreen="allowfullscreen"
+                    src="{{ video.embed_url }}" alt="{{video.title}}">
+                        </iframe>
+					</div>
+				</div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

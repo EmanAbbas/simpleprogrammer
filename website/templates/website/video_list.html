@@ -7,26 +7,33 @@
 
 
 
- {% for video in videos%}
+ {% for video in object_list %}
 
-<div class="mry-i col-md-4">
-    <article>
-        <div class="awr">
-           <a  href="{% url 'video' video.pk %}">
-            <div style=" width:100%; opacity:0.8;">
-                <img src="{{ video.video_thumbnail.url }}" />
+    <div class="mry-i col-md-4" style="height: 330px">
+        <article>
+            <div class="awr">
+               <a  href="{% url 'video' video.pk %}">
+                <div style=" width:100%; opacity:0.8;">
+                    <img src="{{ video.video_thumbnail.url }}" />
 
+                </div>
+            </a>
+
+        <h5><a href="{% url 'video' video.pk %}">{{ video.title }}</a></h5>
+        <div class="met">
+            <div >
+            <div >
+            <span> By <a href="#"> {{ video.author }} </a> /	{{ video.date|date:"M d, Y"  }}  </span></div>
+            <div class="clear"></div></div><div class="clear"></div></div>
             </div>
-        </a>
-
-    <h3 class="entry-title"><a href="{% url 'video' video.pk %}">{{ video.title }}</a></h3>
-    <div class="met"><div class="meta left"><div class="left mc"> <span> By <a href="#"> {{ video.author }} </a> /	{{ video.date }}  </span></div>
-        <div class="clear"></div></div><div class="clear"></div></div>
-         </div>
-</article></div>
+    </article>
+    </div>
 {% endfor %}
 
 </div>
+
+
+    <center> {% include 'partials/_pagination.html' with page=page_obj  %}</center>
 
 
 {% endblock content %}

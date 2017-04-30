@@ -13,7 +13,7 @@
 	</div>
 </div>
 <div class="row">
-  {% for article in articles%}
+  {% for article in object_list %}
     <div class="col-md-3" style="height: 250px;">
         <a  href="{% url 'article' article.pk %}">
             <div style=" width:100%; opacity:0.8;">
@@ -23,7 +23,7 @@
         </a>
         <div class="article-title">
             <h5><a href="{% url 'article' article.pk %}">{{ article.title }}</a>
-            </h5> <span > {{ article.date }}           	        		        /
+            </h5> <span > {{ article.date|date:"M d, Y" }}           	        		        /
 By <a href="#"> {{ article.author }} </a> </span></div></div>
 
     {% endfor %}
