@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from  website.models import Article,Video,ResourceCategory
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView,TemplateView
 # Create your views here.
 
 class ArticleList(ListView):
@@ -34,6 +34,10 @@ class VideoeDetail(DetailView):
 
 class CategoryList(ListView):
     model=ResourceCategory
+
+
+class AboutView(TemplateView):
+    template_name='website/about.html'
 
 
 

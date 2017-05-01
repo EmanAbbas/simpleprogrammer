@@ -1,4 +1,5 @@
 from django.db import models
+from solo.models import SingletonModel
 from stdimage.models import StdImageField
 from ckeditor.fields import RichTextField
 import re
@@ -86,6 +87,21 @@ class Resource(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+
+
+
+
+class AboutPage(SingletonModel):
+    """
+    represents dynamic content of the site
+    """
+    about_title=models.CharField(max_length=200 ,default='About us')
+    about_text=models.TextField(max_length=1000)
+    about_image=StdImageField(upload_to='uploads/images',
+                            variations={'thumbnail': {'width': 400, 'height': 300}})
 
 
 

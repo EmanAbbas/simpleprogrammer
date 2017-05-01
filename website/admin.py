@@ -1,5 +1,6 @@
 from django.contrib import admin
-from website.models import Author,Article,Video,ResourceCategory,Resource
+from website.models import Author,Article,Video,ResourceCategory,Resource,AboutPage
+from solo.admin import SingletonModelAdmin
 
 
 class AuthorAdmin(admin.ModelAdmin):
@@ -42,3 +43,4 @@ admin.site.register(Article, ArticleAdmin)
 admin.site.register(Video, VideoAdmin)
 admin.site.register(ResourceCategory, ResourceCategoryAdmin)
 admin.site.register(Resource, ResourceAdmin)
+admin.site.register(AboutPage, SingletonModelAdmin)

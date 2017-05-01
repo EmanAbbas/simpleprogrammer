@@ -1,0 +1,29 @@
+{%extends 'base.html' %}
+ <!-- PRESENTATION AREA -->
+{% block content %}
+
+
+
+
+{% load solo_tags %}
+{% get_solo 'website.AboutPage' as about %}
+    <div class="container" style="min-height: 400px">
+    <div class="row" >
+    <div class="col-md-8" >
+        <h2>{{ about.about_title }}</h2>
+        
+        <p>
+          {{ about.about_text }}
+        </p>
+
+    </div>
+    <div class="col-md-4">
+      <img src="{{ about.about_image.url }}">
+        
+    </div>
+    </div>
+    </div>
+
+
+
+{% endblock content %}
