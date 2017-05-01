@@ -23,7 +23,7 @@ class ArticleDetail(DetailView):
 
 class VideoeList(ListView):
     model=Video
-    paginate_by = 1
+    paginate_by = 3
 
 
 
