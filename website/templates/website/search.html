@@ -9,7 +9,7 @@
 <div class="row">
 <h3> Articles Results</h3>
   {% for article in articles %}
-    <div class="col-md-3" style="height: 350px;">
+    <div class="col-md-3">
         <a  href="{% url 'article' article.pk %}">
             <div style=" width:100%; opacity:0.8;">
                 <img src="{{ article.picture.thumbnail.url }}" />
@@ -21,6 +21,8 @@
             </h5> <span > {{ article.date|date:"M d, Y" }}           	        		        /
 By <a href="#"> {{ article.author }} </a> </span></div></div>
 
+      {% empty %}
+      <p> No article results.....</p>
     {% endfor %}
     </div>
 
@@ -32,7 +34,7 @@ By <a href="#"> {{ article.author }} </a> </span></div></div>
 
  {% for video in videos %}
 
-    <div class="mry-i col-md-3" style="height: 350px">
+    <div class="mry-i col-md-3" >
         <article>
             <div >
                <a  href="{% url 'video' video.pk %}">
@@ -51,6 +53,8 @@ By <a href="#"> {{ article.author }} </a> </span></div></div>
             </div>
     </article>
     </div>
+     {% empty %}
+      <p> No video results.....</p>
 {% endfor %}
 
 </div>
