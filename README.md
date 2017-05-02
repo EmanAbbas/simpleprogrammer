@@ -39,7 +39,7 @@ python get-pip.py
 
 Ctrl+C to exit environment
 
-###To Run this project on Heroku you should set these environment variables
+### To Run this project on Heroku you should set these environment variables
 - **SECRET_KEY:**  Django Hash key
 - **WEB_URL:** Website publish url
 - **DATABASE_URL:** database connection string(automatically set on heroku)
