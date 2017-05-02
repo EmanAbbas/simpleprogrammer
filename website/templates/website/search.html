@@ -1,0 +1,63 @@
+{%extends 'base.html' %}
+{% block content  %}
+
+
+    <div class="container">
+    <div class="cata">
+				<h2>Search Results for  <span> <sup><small><i class="fa fa-quote-left"></i> </small></sup> {{ keyword }} <sup><small><i class="fa fa-quote-right"></i> </small></sup></span></h2>
+			</div>
+<div class="row">
+<h3> Articles Results</h3>
+  {% for article in articles %}
+    <div class="col-md-3" style="height: 350px;">
+        <a  href="{% url 'article' article.pk %}">
+            <div style=" width:100%; opacity:0.8;">
+                <img src="{{ article.picture.thumbnail.url }}" />
+
+            </div>
+        </a>
+        <div class="article-title">
+            <h5><a href="{% url 'article' article.pk %}">{{ article.title }}</a>
+            </h5> <span > {{ article.date|date:"M d, Y" }}           	        		        /
+By <a href="#"> {{ article.author }} </a> </span></div></div>
+
+    {% endfor %}
+    </div>
+
+
+
+    <div class="row">
+
+<h3> Videos Results</h3>
+
+ {% for video in videos %}
+
+    <div class="mry-i col-md-3" style="height: 350px">
+        <article>
+            <div >
+               <a  href="{% url 'video' video.pk %}">
+                <div style=" width:100%; opacity:0.8;">
+                    <img src="{{ video.video_thumbnail.url }}"  />
+
+                </div>
+            </a>
+
+        <h5><a href="{% url 'video' video.pk %}">{{ video.title }}</a></h5>
+        <div class="met">
+            <div >
+            <div >
+            <span> {{ video.date|date:"M d, Y"  }} / By <a href="#"> {{ video.author }}	</a>   </span></div>
+            <div class="clear"></div></div><div class="clear"></div></div>
+            </div>
+    </article>
+    </div>
+{% endfor %}
+
+</div>
+
+
+
+</div>
+
+
+{% endblock content %}

@@ -41,6 +41,20 @@ class AboutView(TemplateView):
 
 
 
+def search(request):
+    if request.method == 'GET':
+        keyword =  request.GET.get('search') # do some research what it does
+
+        articles = Article.objects.filter(title__icontains=keyword) # filter  articles returns a list
+        videos = Video.objects.filter(title__icontains=keyword) # filter  videos returns a list
+        return render(request,"website/search.html",{"articles":articles,"videos":videos,"keyword":keyword})
+
+
+    else:
+        return render(request,"website/search.html",{})
+
+
+
 
 
 
