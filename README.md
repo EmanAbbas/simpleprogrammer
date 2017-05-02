@@ -35,9 +35,20 @@ python get-pip.py
 
 4. ```sudo pip install -r requirements.txt```
 5. ```python manage.py migrate```
-6. ```python manage.py runserver```
+6. ```python manage.py runserver --settings simpleprogrammer.local_settings ```
 
 Ctrl+C to exit environment
+
+###To Run this project on Heroku you should set these environment variables
+- **SECRET_KEY:**  Django Hash key
+- **WEB_URL:** Website publish url
+- **DATABASE_URL:** database connection string(automatically set on heroku)
+
+**- if using S3 bucket for media storage**
+- AWS_STORAGE_BUCKET_NAME:
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+
 
 ## To view admin site 
 
